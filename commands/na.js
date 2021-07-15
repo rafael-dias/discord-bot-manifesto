@@ -28,7 +28,7 @@ module.exports.run = async(client, message, args) => {
     let seq = []
     let al = 0
     for (let i = 1; i <= Number(args[1]); i += 1) {
-        seq.push(i)
+        seq.push('`' + i + '`')
 
     }
 
@@ -37,5 +37,5 @@ module.exports.run = async(client, message, args) => {
     seq = shuffle(seq)
 
     message.delete()
-    message.channel.send(seq.join(', '));
+    message.channel.send(seq.join(' '));
 };
