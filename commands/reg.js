@@ -13,6 +13,6 @@ module.exports.run = async(client, message, args) => {
 
 
     } else {
-        message.channel.sendMessage("Você não tem permição para registrar um membro");
+        message.channel.sendMessage("Você não tem permissão para registrar um membro");
     }
 };
