@@ -11,7 +11,7 @@ module.exports.run = async(client, message, args) => {
         var role = member.guild.roles.cache.find(role => role.name === "Membros");
         member.roles.add(role);
 
-
+        message.delete()
     } else {
         message.channel.sendMessage("Você não tem permissão para registrar um membro");
     }
