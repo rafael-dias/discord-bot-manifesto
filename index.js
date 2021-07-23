@@ -3,7 +3,7 @@ const app = express();
 
 
 // console.log(process.env)
-const mySecret = process.env['manifesto2021']
+// const mySecret = process.env['manifesto2021']
 
 app.get("/", (request, response) => {
     const ping = new Date();
