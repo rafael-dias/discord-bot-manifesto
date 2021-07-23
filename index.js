@@ -333,7 +333,7 @@ Hora: \` ${body.hora[0][0]} \`
 
 
     }
-    console.log('removeu reação');
+    // console.log('removeu reação');
 
 })
 
