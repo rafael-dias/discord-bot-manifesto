@@ -59,9 +59,6 @@ ${message}
     }
 });
 
-const avalon = require('./avalon/reacoes')
-
-
 const request = require("request");
 client.on('messageReactionAdd', async(reaction_orig, user) => {
 
