@@ -175,7 +175,7 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
 
                 if (reaction_orig.message.id == body.idmsg[0][0]) {
 
-                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}**
+                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}** <@&740302554210107534>
 
 Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
@@ -325,7 +325,7 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
 
                 if (reaction_orig.message.id == body.idmsg[0][0]) {
 
-                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}**
+                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}** <@&740302554210107534>
 
 Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
