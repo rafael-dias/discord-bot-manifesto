@@ -14,7 +14,7 @@ app.get("/", (request, response) => {
 app.listen(process.env.PORT); // Recebe solicitações que o deixa online
 
 const Discord = require("discord.js"); //Conexão com a livraria Discord.js
-const client = new Discord.Client(); //Criação de um novo Client
+const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] }); //Criação de um novo Client
 const config = require("./config.json"); //Pegando o prefixo do bot para respostas de comandos
 
 
@@ -62,6 +62,20 @@ ${message}
 const request = require("request");
 client.on('messageReactionAdd', async(reaction_orig, user) => {
 
+    if (reaction_orig.partial) {
+        // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
+        try {
+            await reaction_orig.fetch();
+        } catch (error) {
+            console.error('Something went wrong when fetching the message: ', error);
+            // Return as `reaction.message.author` may be undefined/null
+            return;
+        }
+    }
+    // console.log('[MESSAGE]:', reaction_orig.message.content);
+    if (reaction_orig.message.content.indexOf('registrando vaga...') == -1) {
+        reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*registrando vaga...*')
+    }
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
         const url = "https://script.google.com/macros/s/AKfycbz6wd51Ag148uVx2FzDhREgfiXY93WF-saKXaptjV_kK2LpPYsP8ezhNmNVW6uBGxaN/exec"
@@ -134,10 +148,10 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
 
 
         // console.log('NOME NICK: ', reaction_orig.message.guild.members.cache.get(user.id).displayName);
-        reaction_orig.message.channel
-            .send(`:small_blue_diamond: *registrando sua vaga...*`).then(msg => msg.delete({
-                timeout: 2000
-            }))
+        // reaction_orig.message.channel
+        //     .send(`:small_blue_diamond: *registrando sua vaga...*`).then(msg => msg.delete({
+        //         timeout: 2000
+        //     }))
         request({
                 method: "GET",
                 url: url,
@@ -187,8 +201,9 @@ Hora: \` ${body.hora[0][0]} \`
 <:18:867950838243532811> Ranged dps 5: \` ${body.funcao18[0][0]} \`
 <:19:867950838268715019> Ranged dps 6: \` ${body.funcao19[0][0]} \`
 <:20:867950838356774912> Ranged dps 7: \` ${body.funcao20[0][0]} \`
-   
- ..................
+
+...
+
     `
                     reaction_orig.message.edit(msg)
 
@@ -204,6 +219,18 @@ Hora: \` ${body.hora[0][0]} \`
 })
 
 client.on('messageReactionRemove', async(reaction_orig, user) => {
+
+    if (reaction_orig.partial) {
+        // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
+        try {
+            await reaction_orig.fetch();
+        } catch (error) {
+            console.error('Something went wrong when fetching the message: ', error);
+            // Return as `reaction.message.author` may be undefined/null
+            return;
+        }
+    }
+
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
         const url = "https://script.google.com/macros/s/AKfycbz6wd51Ag148uVx2FzDhREgfiXY93WF-saKXaptjV_kK2LpPYsP8ezhNmNVW6uBGxaN/exec"
 
@@ -269,10 +296,14 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
             funcao = 20
         }
 
-        reaction_orig.message.channel
-            .send(`:small_blue_diamond: *removendo sua vaga...*`).then(msg => msg.delete({
-                timeout: 2000
-            }))
+        // reaction_orig.message.channel
+        //     .send(`:small_blue_diamond: *removendo sua vaga...*`).then(msg => msg.delete({
+        //         timeout: 2000
+        //     }))
+        if (reaction_orig.message.content.indexOf('removendo sua vaga...') == -1) {
+
+            reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*removendo sua vaga...*')
+        }
         request({
                 method: "GET",
                 url: url,
@@ -320,8 +351,8 @@ Hora: \` ${body.hora[0][0]} \`
 <:18:867950838243532811> Ranged dps 5: \` ${body.funcao18[0][0]} \`
 <:19:867950838268715019> Ranged dps 6: \` ${body.funcao19[0][0]} \`
 <:20:867950838356774912> Ranged dps 7: \` ${body.funcao20[0][0]} \`
-   
- ..................
+
+ ...
     `
                     reaction_orig.message.edit(msg)
                 }
