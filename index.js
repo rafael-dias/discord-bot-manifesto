@@ -181,6 +181,8 @@ Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
 Hora: \` ${body.hora[0][0]} \`
 
+Builds: <#770027301386977330>
+
 <:1:867950823165009920> Tank martelo: \` ${body.funcao1[0][0]} \`
 <:2:867950824800792596> Tank cambriana: \` ${body.funcao2[0][0]} \`
 <:3:867950825220218962> Tank suporte: \` ${body.funcao3[0][0]} \`
@@ -330,6 +332,8 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
 Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
 Hora: \` ${body.hora[0][0]} \`
+
+Builds: <#770027301386977330>
 
 <:1:867950823165009920> Tank martelo: \` ${body.funcao1[0][0]} \`
 <:2:867950824800792596> Tank cambriana: \` ${body.funcao2[0][0]} \`
