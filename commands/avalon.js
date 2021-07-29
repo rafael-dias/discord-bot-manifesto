@@ -16,7 +16,7 @@ module.exports.run = async(client, message, args) => {
     if (!args || args.length != 4) {
         let alerta = `:small_orange_diamond: Insira as informações corretas:
 
-\`--avalon \` \`tier\` \`nome-do-mapa\` \`dia\` \`hora\`  (**nome do mapa n pode conter espaço*)
+\`--avalon \` \`tier\` \`nome-do-mapa\` \`dia\` \`hora\`  \`ip\`  (**nome do mapa n pode conter espaço*)
 
 ex: --avalon 6.2 longfen-arms 01/01 00h`
         message.delete({
@@ -31,6 +31,7 @@ ex: --avalon 6.2 longfen-arms 01/01 00h`
     mapa = args[1]
     dia = args[2]
     hora = args[3]
+    ip = args[4]
 
 
     let ultimamsg = canal.lastMessageID
@@ -39,12 +40,13 @@ ex: --avalon 6.2 longfen-arms 01/01 00h`
 
 
 
-    const url = "https://script.google.com/macros/s/AKfycbz6wd51Ag148uVx2FzDhREgfiXY93WF-saKXaptjV_kK2LpPYsP8ezhNmNVW6uBGxaN/exec"
+    const url = "https://script.google.com/macros/s/AKfycbxAvxheAWkcgf9bmHU-dGnd8a6OIS6uoYswAOT6bg6ANmqtwEVby8tVQElOD9xYkJMJ/exec"
     const msg = `**Dg Avalon Fullclear ${tier}** <@&740302554210107534>
 
 Mapa: \` ${mapa} \`
 Dia: \` ${dia} \`
 Hora: \` ${hora} \`
+IP: \` ${ip} \`
 
 Builds: <#770027301386977330>
 
@@ -85,7 +87,8 @@ Builds: <#770027301386977330>
                     mapa: mapa,
                     dia: dia,
                     tier: tier,
-                    hora: hora
+                    hora: hora,
+                    ip: ip
                 }
             },
             (err, res, body) => {

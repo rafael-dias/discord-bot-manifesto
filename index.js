@@ -78,7 +78,7 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
     }
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
-        const url = "https://script.google.com/macros/s/AKfycbz6wd51Ag148uVx2FzDhREgfiXY93WF-saKXaptjV_kK2LpPYsP8ezhNmNVW6uBGxaN/exec"
+        const url = "https://script.google.com/macros/s/AKfycbxAvxheAWkcgf9bmHU-dGnd8a6OIS6uoYswAOT6bg6ANmqtwEVby8tVQElOD9xYkJMJ/exec"
 
 
 
@@ -180,6 +180,7 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
 Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
 Hora: \` ${body.hora[0][0]} \`
+IP: \` ${body.ip} \`
 
 Builds: <#770027301386977330>
 
@@ -234,7 +235,7 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
     }
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
-        const url = "https://script.google.com/macros/s/AKfycbz6wd51Ag148uVx2FzDhREgfiXY93WF-saKXaptjV_kK2LpPYsP8ezhNmNVW6uBGxaN/exec"
+        const url = "https://script.google.com/macros/s/AKfycbxAvxheAWkcgf9bmHU-dGnd8a6OIS6uoYswAOT6bg6ANmqtwEVby8tVQElOD9xYkJMJ/exec"
 
         let funcao = ''
         if (reaction_orig._emoji.name == '1_') {
@@ -332,6 +333,7 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
 Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
 Hora: \` ${body.hora[0][0]} \`
+IP: \` ${body.ip} \`
 
 Builds: <#770027301386977330>
 
