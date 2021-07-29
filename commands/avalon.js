@@ -13,7 +13,7 @@ module.exports.run = async(client, message, args) => {
         dia = '',
         hora = ''
 
-    if (!args || args.length != 4) {
+    if (!args || args.length != 5) {
         let alerta = `:small_orange_diamond: Insira as informações corretas:
 
 \`--avalon \` \`tier\` \`nome-do-mapa\` \`dia\` \`hora\`  \`ip\`  (**nome do mapa n pode conter espaço*)
