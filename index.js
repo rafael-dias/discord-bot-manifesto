@@ -14,7 +14,9 @@ app.get("/", (request, response) => {
 app.listen(process.env.PORT); // Recebe solicitações que o deixa online
 
 const Discord = require("discord.js"); //Conexão com a livraria Discord.js
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] }); //Criação de um novo Client
+const client = new Discord.Client({
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+}); //Criação de um novo Client
 const config = require("./config.json"); //Pegando o prefixo do bot para respostas de comandos
 
 
@@ -144,16 +146,19 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
             funcao = 20
         }
 
-        if (reaction_orig.message.content.indexOf('registrando vaga...') == -1 && funcao != '') {
+        if (reaction_orig.message.content.indexOf('registrando vaga...') == -1) {
             reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*registrando vaga...*')
         }
 
 
         // console.log('NOME NICK: ', reaction_orig.message.guild.members.cache.get(user.id).displayName);
-        // reaction_orig.message.channel
-        //     .send(`:small_blue_diamond: *registrando sua vaga...*`).then(msg => msg.delete({
-        //         timeout: 2000
-        //     }))
+
+        if (funcao != '') {
+            reaction_orig.message.channel
+                .send(`:small_blue_diamond: *registrando sua vaga...*`).then(msg => msg.delete({
+                    timeout: 2000
+                }))
+        }
         request({
                 method: "GET",
                 url: url,
@@ -301,14 +306,21 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
             funcao = 20
         }
 
-        // reaction_orig.message.channel
-        //     .send(`:small_blue_diamond: *removendo sua vaga...*`).then(msg => msg.delete({
-        //         timeout: 2000
-        //     }))
-        if (reaction_orig.message.content.indexOf('removendo sua vaga...') == -1 && funcao != '') {
+        if (reaction_orig.message.content.indexOf('removendo sua vaga...') == -1) {
 
             reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*removendo sua vaga...*')
         }
+
+        if (funcao != '') {
+
+
+
+            reaction_orig.message.channel
+                .send(`:small_blue_diamond: *removendo sua vaga...*`).then(msg => msg.delete({
+                    timeout: 2000
+                }))
+        }
+
         request({
                 method: "GET",
                 url: url,
