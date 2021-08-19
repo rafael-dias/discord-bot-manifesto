@@ -153,12 +153,12 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
 
         // console.log('NOME NICK: ', reaction_orig.message.guild.members.cache.get(user.id).displayName);
 
-        if (funcao != '') {
-            reaction_orig.message.channel
-                .send(`:small_blue_diamond: *registrando sua vaga...*`).then(msg => msg.delete({
-                    timeout: 2000
-                }))
-        }
+        // if (funcao != '') {
+        //     reaction_orig.message.channel
+        //         .send(`:small_blue_diamond: *registrando sua vaga...*`).then(msg => msg.delete({
+        //             timeout: 2000
+        //         }))
+        // }
         request({
                 method: "GET",
                 url: url,
@@ -311,15 +311,12 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
             reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*removendo sua vaga...*')
         }
 
-        if (funcao != '') {
-
-
-
-            reaction_orig.message.channel
-                .send(`:small_blue_diamond: *removendo sua vaga...*`).then(msg => msg.delete({
-                    timeout: 2000
-                }))
-        }
+        // if (funcao != '') {
+        //     reaction_orig.message.channel
+        //         .send(`:small_blue_diamond: *removendo sua vaga...*`).then(msg => msg.delete({
+        //             timeout: 2000
+        //         }))
+        // }
 
         request({
                 method: "GET",
