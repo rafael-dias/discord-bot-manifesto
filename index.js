@@ -73,9 +73,7 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
         }
     }
     // console.log('[MESSAGE]:', reaction_orig.message.content);
-    if (reaction_orig.message.content.indexOf('registrando vaga...') == -1) {
-        reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*registrando vaga...*')
-    }
+
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
         const url = "https://script.google.com/macros/s/AKfycbxAvxheAWkcgf9bmHU-dGnd8a6OIS6uoYswAOT6bg6ANmqtwEVby8tVQElOD9xYkJMJ/exec"
@@ -144,6 +142,10 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
         }
         if (reaction_orig._emoji.name == '20') {
             funcao = 20
+        }
+
+        if (reaction_orig.message.content.indexOf('registrando vaga...') == -1 && funcao != '') {
+            reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*registrando vaga...*')
         }
 
 
@@ -303,7 +305,7 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
         //     .send(`:small_blue_diamond: *removendo sua vaga...*`).then(msg => msg.delete({
         //         timeout: 2000
         //     }))
-        if (reaction_orig.message.content.indexOf('removendo sua vaga...') == -1) {
+        if (reaction_orig.message.content.indexOf('removendo sua vaga...') == -1 && funcao != '') {
 
             reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*removendo sua vaga...*')
         }
