@@ -9,6 +9,8 @@ module.exports.run = async(client, message, args) => {
 
 
     const sayMessage = args.join(' ');
+    console.log('[message]:', message.attachments[0].url);
+    console.log('[args]:', args);
     message.delete().catch(O_o => {});
     message.channel.send(sayMessage).then((message) => {
 

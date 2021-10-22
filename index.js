@@ -78,7 +78,7 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
 
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
-        const url = "https://script.google.com/macros/s/AKfycbxAvxheAWkcgf9bmHU-dGnd8a6OIS6uoYswAOT6bg6ANmqtwEVby8tVQElOD9xYkJMJ/exec"
+        const url = "https://script.google.com/macros/s/AKfycbz3jx7x6jkP1WnFN5JVpgrnUhWZI9mzbRAYs8ydTqwVADFuf5xzb94jhPUHmfxkd9q5/exec"
 
 
 
@@ -182,7 +182,7 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
 
                 if (reaction_orig.message.id == body.idmsg[0][0]) {
 
-                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}** <@&740302554210107534>
+                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}** @here
 
 Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
@@ -242,7 +242,7 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
     }
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
-        const url = "https://script.google.com/macros/s/AKfycbxAvxheAWkcgf9bmHU-dGnd8a6OIS6uoYswAOT6bg6ANmqtwEVby8tVQElOD9xYkJMJ/exec"
+        const url = "https://script.google.com/macros/s/AKfycbz3jx7x6jkP1WnFN5JVpgrnUhWZI9mzbRAYs8ydTqwVADFuf5xzb94jhPUHmfxkd9q5/exec"
 
         let funcao = ''
         if (reaction_orig._emoji.name == '1_') {
@@ -307,7 +307,6 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
         }
 
         if (reaction_orig.message.content.indexOf('removendo sua vaga...') == -1) {
-
             reaction_orig.message.edit(reaction_orig.message.content.slice(0, -3) + '*removendo sua vaga...*')
         }
 
@@ -339,7 +338,7 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
 
                 if (reaction_orig.message.id == body.idmsg[0][0]) {
 
-                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}** <@&740302554210107534>
+                    const msg = `**Dg Avalon Fullclear ${body.tier[0][0]}** @here
 
 Mapa: \` ${body.mapa[0][0]} \`
 Dia: \` ${body.dia[0][0]} \`
