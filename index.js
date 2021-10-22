@@ -78,7 +78,7 @@ client.on('messageReactionAdd', async(reaction_orig, user) => {
 
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
-        const url = "https://script.google.com/macros/s/AKfycbz3jx7x6jkP1WnFN5JVpgrnUhWZI9mzbRAYs8ydTqwVADFuf5xzb94jhPUHmfxkd9q5/exec"
+        const url = "https://script.google.com/macros/s/AKfycbytb2HaqW-XInMArlIlX9zb4SWPmIoQLTjk8ItuAUFeZwqQdAwhIm38U2v0HjGhIXI9/exec"
 
 
 
@@ -242,7 +242,7 @@ client.on('messageReactionRemove', async(reaction_orig, user) => {
     }
 
     if (reaction_orig.message.author.id === '741043625827500142' && user.id != reaction_orig.message.author.id) {
-        const url = "https://script.google.com/macros/s/AKfycbz3jx7x6jkP1WnFN5JVpgrnUhWZI9mzbRAYs8ydTqwVADFuf5xzb94jhPUHmfxkd9q5/exec"
+        const url = "https://script.google.com/macros/s/AKfycbytb2HaqW-XInMArlIlX9zb4SWPmIoQLTjk8ItuAUFeZwqQdAwhIm38U2v0HjGhIXI9/exec"
 
         let funcao = ''
         if (reaction_orig._emoji.name == '1_') {
