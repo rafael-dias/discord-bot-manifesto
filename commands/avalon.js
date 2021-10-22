@@ -40,7 +40,7 @@ ex: --avalon 6.2 longfen-arms 01/01 00h`
 
 
 
-    const url = "https://script.google.com/macros/s/AKfycbx9ZKkcWJeJpUJT_YoXOAoFNoCQXJEnZcVfoaOvLjfJ-v4HbIlXft0L05U-ojtY3AI4/exec"
+    const url = "https://script.google.com/macros/s/AKfycbw1bdidXyKKzRsnjuBrjFfMwIaiKphhL4rHkv59TCp19Ze-mcHpMmtqt-nXsKVxbJ4/exec"
     const msg = `**Dg Avalon Fullclear ${tier}** @here
 
 Mapa: \` ${mapa} \`
